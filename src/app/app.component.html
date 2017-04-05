@@ -12,7 +12,7 @@
         <h4>Saving Throws</h4>
       </div>
       <div id="skills">
-        <app-skill-block *ngFor="let skill of skills" [skill]="skill"></app-skill-block>
+        <app-skill-block *ngFor="let skill of skills | async" [skill]="skill"></app-skill-block>
       </div>
     </div>
     <div class="col-xs-4">

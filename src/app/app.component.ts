@@ -1,14 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StatBlockComponent } from './stat-block/stat-block.component';
 import { Stat } from './stat.model';
 import { Skill } from './skill.model';
+import { SkillService } from './skill.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [SkillService]
 })
+
 export class AppComponent {
+
+  constructor(private skillService: SkillService) {};
+
+  skills;
+
   stats: Stat[] = [
     new Stat("Strength", 12),
     new Stat("Dexterity", 13),
@@ -18,24 +26,8 @@ export class AppComponent {
     new Stat("Charisma", 14)
   ];
 
-  skills: Skill[] = [
-    new Skill("Acrobatics", "Dexterity"),
-    new Skill("Animal Handling", "Wisdom"),
-    new Skill("Arcana", "Intelligence"),
-    new Skill("Athletics", "Strength"),
-    new Skill("Deception", "Charisma"),
-    new Skill("History", "Intelligence"),
-    new Skill("Insight", "Wisdom"),
-    new Skill("Intimidation", "Charisma"),
-    new Skill("Investigation", "Intelligence"),
-    new Skill("Medicine", "Wisdom"),
-    new Skill("Nature", "Intelligence"),
-    new Skill("Perception", "Wisdom"),
-    new Skill("Performance", "Charisma"),
-    new Skill("Persuasion", "Charisma"),
-    new Skill("Religion", "Intelligence"),
-    new Skill("Sleight of Hand", "Dexterity"),
-    new Skill("Stealth", "Dexterity"),
-    new Skill("Survival", "Wisdom")
-  ];
+  ngOnInit() {
+    this.skills = this.skillService.getSkills();
+  }
+
 }

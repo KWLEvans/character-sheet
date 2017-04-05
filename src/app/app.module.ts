@@ -11,6 +11,13 @@ import { StatTileComponent } from './stat-tile/stat-tile.component';
 import { SavingThrowsComponent } from './saving-throws/saving-throws.component';
 import { SkillBlockComponent } from './skill-block/skill-block.component';
 
+export const firebaseConfig = {
+  apiKey: masterFirebaseConfig.apiKey,
+  authDomain: masterFirebaseConfig.authDomain,
+  databaseURL: masterFirebaseConfig.databaseURL,
+  storageBucket: masterFirebaseConfig.storageBucket
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +29,8 @@ import { SkillBlockComponent } from './skill-block/skill-block.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

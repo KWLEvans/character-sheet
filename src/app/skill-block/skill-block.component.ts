@@ -7,7 +7,7 @@ import { Skill } from './../skill.model';
   styleUrls: ['./skill-block.component.css']
 })
 export class SkillBlockComponent implements OnInit {
-  @Input() skill: Skill;
+  @Input() skill;
   constructor() { }
 
   ngOnInit() {
