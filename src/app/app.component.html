@@ -1,3 +1,23 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+  <div class="row">
+  </div>
+  <div class="row">
+    <div class="col-xs-1">
+      <app-stat-block [stats]="stats"></app-stat-block>
+    </div>
+    <div class="col-xs-3">
+      <h4>2  Proficiency Bonus</h4>
+      <div id="saving-throws">
+        <app-saving-throws *ngFor="let stat of stats" [stat]="stat"></app-saving-throws>
+        <h4>Saving Throws</h4>
+      </div>
+      <div id="skills">
+        <app-skill-block *ngFor="let skill of skills" [skill]="skill"></app-skill-block>
+      </div>
+    </div>
+    <div class="col-xs-4">
+    </div>
+    <div class="col-xs-4">
+    </div>
+  </div>
+</div>

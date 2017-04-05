@@ -1,0 +1,9 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{stat.name}}</h3>
+  </div>
+  <div class="panel-body">
+    <h4><span *ngIf="stat.getModifier() > 0">+</span>{{stat.getModifier()}}</h4>
+    <h5>{{stat.score}}</h5>
+  </div>
+</div>
